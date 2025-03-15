@@ -1,4 +1,4 @@
-$!/bin/sh
+#!/bin/bash
 
 MOVIE=("pushpa" "rrr" "devara")
 
