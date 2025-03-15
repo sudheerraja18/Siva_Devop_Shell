@@ -1,5 +1,5 @@
 #!/bin/bash
 
-USER="sudheer"
+#USER="sudheer"
 
 echo "Name : $USER"
