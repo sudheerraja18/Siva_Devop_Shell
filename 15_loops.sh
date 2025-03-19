@@ -37,7 +37,7 @@ do
     then
         dnf install $package -y &>>$LOGS_FILE_NAME
     else
-        echo "$package already installed"
+        echo -e "$package already... $Y installed $N"
     fi
 done
 
