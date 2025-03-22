@@ -26,7 +26,7 @@ VALIDATE(){
 
 echo "Script started excuting at : $TIMESTAMP" &>>$LOGS_FILE_NAME
 
-$(find $SOURCE_FOLDER -name '*.log' -mtime +14) > out.txt
+find $SOURCE_FOLDER -name '*.log' -mtime +14 > out.txt
 echo "11111111111111111111111111111111111111111111111111"
 cat out.txt
 echo "22222222222222222222222222222222222222222222222222"
