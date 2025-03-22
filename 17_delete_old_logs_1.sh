@@ -34,6 +34,6 @@ echo "22222222222222222222222222222222222222222222222222"
 while read -r line
 do
     echo "Deleting file: $line"
-    rm -rf $line
+    #rm -rf $line
 done < out.txt
 
