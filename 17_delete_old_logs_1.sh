@@ -33,6 +33,6 @@ cat out.txt
 while read -r line
 do
     echo "Deleting file: $line"
-    #rm -rf $line
+    rm -rf $line
 done < out.txt
 
