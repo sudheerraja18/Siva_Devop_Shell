@@ -7,6 +7,8 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
+SOURCE_FOLDER="/home/ec2-user/app-logs"
+
 LOGS_FOLDER="/var/log/shellscript-logs"
 LOGS_FILE="$(echo $0 | cut -d "." -f1)"
 TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
@@ -24,21 +26,7 @@ VALIDATE(){
 
 echo "Script started excuting at : $TIMESTAMP" &>>$LOGS_FILE_NAME
 
-if [ $USERID -ne 0 ]
-then
-    echo "Error: User need to have super user permission to execute this script"
-    exit 1
-fi
+FILES_TO_DELETE=$(find $SOURCE_FOLDER "*.log" -mtime +14)
+echo "Files to be deleted: $FILES_TO_DELETE"
 
-for package in $@
-do
-    dnf list installed $package &>>$LOGS_FILE_NAME
-    if [ $? -ne 0 ]
-    then
-        dnf install $package -y &>>$LOGS_FILE_NAME
-        VALIDATE $? "Installing $package"
-    else
-        echo -e "$package already... $Y installed $N"
-    fi
-done
 
