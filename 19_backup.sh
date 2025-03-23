@@ -7,17 +7,19 @@ N="\e[0m"
 
 SOURCE_FOLDER=$1
 DEST_FOLDER=$2
+DAYS=${3:-14}
 
-LOGS_FOLDER="/var/log/shellscript-logs"
+LOGS_FOLDER="/home/ec2-user/shellscript-logs"
 LOGS_FILE="$(echo $0 | cut -d "." -f1)"
 TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 LOGS_FILE_NAME="$LOGS_FOLDER/$LOGS_FILE-$TIMESTAMP.log"
 
 USAGE(){
-    echo -e "$R ERROR:: $N Script to be excuted as sh <Script Name> <Source Path> <Destination Path> <Days(Optional)>"
+    echo -e "$R USAGE:: $N sh 18-backup.sh <SOURCE_DIR> <DEST_DIR> <DAYS(Optional)>"
     exit 1
 }
 
+mkdir -p "/home/ec2-user/shellscript-logs"
 echo "Script started excuting at : $TIMESTAMP" &>>$LOGS_FILE_NAME
 
 if [ $# -lt 2 ]
@@ -25,13 +27,13 @@ then
     USAGE
 fi
 
-if [ -d "$SOURCE_FOLDER" ]
+if [ ! -d "$SOURCE_FOLDER" ]
 then
     echo "source folder does not exist ..."
     exit 1
 fi
 
-if [ -d "$DEST_FOLDER" ]
+if [ ! -d "$DEST_FOLDER" ]
 then
     echo "destination folder does not exist ..."
     exit 1
