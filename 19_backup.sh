@@ -10,7 +10,7 @@ DEST_FOLDER=$2
 DAYS=${3:-14}
 
 LOGS_FOLDER="/home/ec2-user/shellscript-logs"
-LOGS_FILE="$(echo $0 | cut -d "." -f1)"
+LOGS_FILE="$(echo $0 | awk -F '/' '{print $NF}' | cut -d "." -f1)"
 TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 LOGS_FILE_NAME="$LOGS_FOLDER/$LOGS_FILE-$TIMESTAMP.log"
 
