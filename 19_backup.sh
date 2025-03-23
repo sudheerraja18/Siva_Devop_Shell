@@ -39,12 +39,12 @@ then
     exit 1
 fi
 
-FILES=$(find $SOURCE_FOLDER -name '*.log' -mtime +DAYS)
+FILES=$(find $SOURCE_FOLDER -name '*.log' -mtime +$DAYS)
 
 if [ -n "$FILES" ]
 then
-    echo "Files are.....$FILES"
-    find . -name '*.log' -mtime +14 | zip -@ $LOGS_FILE_NAME
+    echo "Files are..... $FILES"
+    find . -name '*.log' -mtime +$DAYS | zip -@ $LOGS_FILE_NAME
     if [ $? -eq 0 ]
     then
         while read -r file
