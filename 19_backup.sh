@@ -41,7 +41,7 @@ fi
 
 FILES_TO_DELETE=$(find $SOURCE_FOLDER -name '*.log' -mtime +14)
 
-if [ -n $FILES_TO_DELETE ]
+if [ -n "$FILES_TO_DELETE" ]
 then
     echo "Files to be deleted are....."
     echo "$FILES_TO_DELETE"
