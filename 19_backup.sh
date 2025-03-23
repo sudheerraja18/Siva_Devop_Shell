@@ -45,7 +45,7 @@ if [ -n "$FILES" ]
 then
     echo "Files are..... $FILES"
     ZIP_FILE_NAME="$DEST_FOLDER/app-logs-$TIMESTAMP.zip"
-    find $SOURCE_FOLDER -name '*.log' -mtime +$DAYS | zip -@ $ZIP_FILE_NAME
+    find $SOURCE_FOLDER -name '*.log' -mtime +$DAYS | zip -@ $ZIP_FILE_NAME &>>$LOGS_FILE_NAME
     if [ $? -eq 0 ]
     then
         while read -r file
