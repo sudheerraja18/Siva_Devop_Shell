@@ -29,22 +29,21 @@ fi
 
 if [ ! -d "$SOURCE_FOLDER" ]
 then
-    echo "source folder does not exist ..."
+    echo "$SOURCE_FOLDER does not exist ... Please check"
     exit 1
 fi
 
 if [ ! -d "$DEST_FOLDER" ]
 then
-    echo "destination folder does not exist ..."
+    echo "$DEST_FOLDER does not exist ... Please check"
     exit 1
 fi
 
-FILES_TO_DELETE=$(find $SOURCE_FOLDER -name '*.log' -mtime +14)
+FILES=$(find $SOURCE_FOLDER -name '*.log' -mtime +DAYS)
 
-if [ -n "$FILES_TO_DELETE" ]
+if [ -n "$FILES" ]
 then
-    echo "Files to be deleted are....."
-    echo "$FILES_TO_DELETE"
+    echo "Files are.....$FILES"
     find . -name '*.log' -mtime +14 | zip -@ $LOGS_FILE_NAME
     if [ $? -eq 0 ]
     then
@@ -52,10 +51,10 @@ then
         do
             echo "Deleting file: $file"
             # rm -rf $file
-        done <<< $FILES_TO_DELETE
+        done <<< $FILES
     else
         echo "Unable to zip the old logs"
     fi
 else
-    echo "No files to zip"
+    echo "No files found older than $DAYS days ..."
 fi
