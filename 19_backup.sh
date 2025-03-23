@@ -14,7 +14,7 @@ TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 LOGS_FILE_NAME="$LOGS_FOLDER/$LOGS_FILE-$TIMESTAMP.log"
 
 USAGE(){
-    echo -e "$R ERROR :: $N Script to be excuted as sh <Script Name> <Source Path> <Destination Path> <Days(Optional)>"
+    echo -e "$R ERROR:: $N Script to be excuted as sh <Script Name> <Source Path> <Destination Path> <Days(Optional)>"
     exit 1
 }
 
