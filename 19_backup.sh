@@ -45,7 +45,7 @@ if [ -n "$FILES_TO_DELETE" ]
 then
     echo "Files to be deleted are....."
     echo "$FILES_TO_DELETE"
-    find . -name '*.log' -mtime +14 | zip @ $LOGS_FILE_NAME
+    find . -name '*.log' -mtime +14 | zip -@ $LOGS_FILE_NAME
     if [ $? -eq 0 ]
     then
         while read -r file
