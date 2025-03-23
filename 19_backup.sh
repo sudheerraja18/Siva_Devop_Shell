@@ -25,15 +25,15 @@ then
     USAGE
 fi
 
-if [ -d $SOURCE_FOLDER ]
+if [ -d "$SOURCE_FOLDER" ]
 then
-    echo "source folder not present in the location"
+    echo "source folder does not exist ..."
     exit 1
 fi
 
-if [ -d $DEST_FOLDER ]
+if [ -d "$DEST_FOLDER" ]
 then
-    echo "dest folder not present in the location"
+    echo "destination folder does not exist ..."
     exit 1
 fi
 
