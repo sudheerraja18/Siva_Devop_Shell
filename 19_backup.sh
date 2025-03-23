@@ -39,7 +39,7 @@ then
     exit 1
 fi
 
-FILES_TO_DELETE=$(find . -name '*.log' -mtime +14)
+FILES_TO_DELETE=$(find $SOURCE_FOLDER -name '*.log' -mtime +14)
 
 if [ -n $FILES_TO_DELETE]
 then
