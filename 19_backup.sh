@@ -46,7 +46,7 @@ then
     echo "Files are..... $FILES"
     ZIP_FILE_NAME="$DEST_FOLDER/app-logs-$TIMESTAMP.zip"
     find $SOURCE_FOLDER -name '*.log' -mtime +$DAYS | zip -@ $ZIP_FILE_NAME &>>$LOGS_FILE_NAME
-    if [ -f "$ZIP_FILE" ]
+    if [ -f "$ZIP_FILE_NAME" ]
     then
         echo "Successfully created zip file for files older than $DAYS days"
         while read -r filepath
