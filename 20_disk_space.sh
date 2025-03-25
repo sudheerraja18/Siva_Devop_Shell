@@ -10,6 +10,6 @@ do
     PARTITION=$(echo "$line" | awk -F " "  '{print $7F}')
     if [ $USAGE -gt 5 ]
     then
-        echo "Partition: $PARTITION , USAGE: $USAGE"
+        MSG+="Partition: $PARTITION , USAGE: $USAGE \n"
     fi
 done <<< $DISK_USAGE
