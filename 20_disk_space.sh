@@ -11,5 +11,5 @@ do
     if [ $USAGE -gt 5]
     then
         echo "Partition: $PARTITION , USAGE: $USAGE"
-    do 
+    fi
 done <<< $DISK_USAGE
