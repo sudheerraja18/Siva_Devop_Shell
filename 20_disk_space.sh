@@ -13,3 +13,5 @@ do
         MSG+="Partition: $PARTITION , USAGE: $USAGE \n"
     fi
 done <<< $DISK_USAGE
+
+echo "$MSG"
