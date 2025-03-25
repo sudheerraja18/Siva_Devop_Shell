@@ -8,7 +8,7 @@ while read -r line
 do 
     USAGE=$(echo "$line" | awk -F " " '{print $6F}' | cut -d '%' -f1)
     PARTITION=$(echo "$line" | awk -F " "  '{print $7F}')
-    if [ $USAGE -gt 5]
+    if [ $USAGE -gt 5 ]
     then
         echo "Partition: $PARTITION , USAGE: $USAGE"
     fi
